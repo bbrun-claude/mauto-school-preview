@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M'Auto School — Auto-Moto École à Pas-en-Artois (62)</title>
+  <meta name="description" content="Auto-moto école à Pas-en-Artois (62). Permis B, moto, AM, remorque. 4 agences dans l'Artois. 18 ans d'expérience. Piste privée. Tél : 03 21 22 49 24.">
+  <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+  <meta property="og:title" content="M'Auto School — Auto-Moto École à Pas-en-Artois (62)">
+  <meta property="og:description" content="Permis B, moto, AM, remorque. 4 agences dans l'Artois. 18 ans d'expérience.">
+  <meta property="og:image" content="img/voiture.jpg">
+  <meta property="og:type" content="website">
+  <!-- DA : rouge #E82228 (logo/véhicule), noir #1A1A1A, blanc. Références : La Marseillanaise (auto-école, client payant). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --rouge: #E82228;
+      --rouge-fonce: #C91C22;
+      --rouge-clair: #FDE8E8;
+      --noir: #1A1A1A;
+      --gris-fonce: #333333;
+      --gris: #6B6B7B;
+      --gris-clair: #F7F7F8;
+      --blanc: #FFFFFF;
+      --r: 12px;
+      --r-lg: 20px;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: var(--noir);
+      line-height: 1.7;
+      background: var(--blanc);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo { height: 56px; border-radius: 6px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem; font-weight: 700; color: var(--noir);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--rouge); }
+    .nav-cta {
+      background: var(--rouge); color: var(--blanc) !important;
+      padding: 10px 24px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 800;
+      transition: all 0.3s;
+      box-shadow: 0 4px 14px rgba(232,34,40,0.25);
+    }
+    .nav-cta:hover {
+      background: var(--rouge-fonce);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232,34,40,0.35);
+    }
+    .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; }
+    .burger span { display: block; width: 26px; height: 3px; background: var(--noir); border-radius: 2px; transition: 0.3s; }
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--noir);
+    }
+    .mobile-menu a:hover { color: var(--rouge); }
+    .mobile-close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; cursor: pointer;
+      font-size: 2rem; color: var(--noir);
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 72px;
+      background: var(--noir);
+      color: var(--blanc);
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url('img/voiture.jpg') center/cover;
+      opacity: 0.2;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--rouge); color: var(--blanc);
+      padding: 6px 16px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .hero h1 .accent { color: var(--rouge); }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+    .btn-rouge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--rouge); color: var(--blanc);
+      padding: 14px 32px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 0.95rem;
+      border: none; cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(232,34,40,0.3);
+    }
+    .btn-rouge:hover {
+      background: var(--rouge-fonce);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(232,34,40,0.4);
+    }
+    .btn-blanc {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--blanc);
+      padding: 14px 32px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 0.95rem;
+      border: 2px solid rgba(255,255,255,0.4);
+      cursor: pointer; transition: all 0.3s;
+    }
+    .btn-blanc:hover { background: rgba(255,255,255,0.1); border-color: var(--blanc); }
+
+    .hero-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+    }
+    .hero-stat { text-align: left; }
+    .hero-stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; font-weight: 900; color: var(--rouge);
+    }
+    .hero-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+    /* CHIFFRES */
+    .chiffres {
+      background: var(--rouge);
+      color: var(--blanc);
+      padding: 40px 24px;
+    }
+    .chiffres-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; text-align: center;
+    }
+    .chiffre-item { }
+    .chiffre-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem; font-weight: 900;
+    }
+    .chiffre-label { font-size: 0.88rem; opacity: 0.9; }
+
+    /* SECTIONS */
+    .sec-head { text-align: center; margin-bottom: 48px; }
+    .sec-label {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--rouge);
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900; color: var(--noir);
+      margin-bottom: 10px;
+    }
+    .sec-desc { color: var(--gris); max-width: 520px; margin: 0 auto; font-size: 0.98rem; }
+
+    /* PERMIS */
+    .permis { padding: 80px 24px; background: var(--gris-clair); }
+    .permis-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .permis-card {
+      background: var(--blanc);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+      transition: all 0.3s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .permis-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+    .permis-icon {
+      width: 56px; height: 56px;
+      background: var(--rouge-clair);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.6rem;
+    }
+    .permis-card h3 {
+      font-size: 1.15rem; font-weight: 800; margin-bottom: 8px;
+    }
+    .permis-card p { color: var(--gris); font-size: 0.9rem; }
+
+    /* ATOUTS */
+    .atouts { padding: 80px 24px; }
+    .atouts-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
+    }
+    .atouts-img {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .atouts-img img { width: 100%; height: auto; }
+    .atouts-list { list-style: none; }
+    .atouts-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .atouts-list li:last-child { border-bottom: none; }
+    .atout-check {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--rouge-clair);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--rouge);
+      font-weight: 900; font-size: 0.9rem;
+    }
+    .atout-text h4 { font-size: 1rem; font-weight: 800; margin-bottom: 2px; }
+    .atout-text p { font-size: 0.88rem; color: var(--gris); }
+
+    /* AGENCES */
+    .agences { padding: 80px 24px; background: var(--gris-clair); }
+    .agences-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .agence-card {
+      background: var(--blanc);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: all 0.3s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .agence-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .agence-pin {
+      width: 44px; height: 44px;
+      background: var(--rouge-clair);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      color: var(--rouge);
+      font-size: 1.2rem;
+    }
+    .agence-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+    .agence-card p { font-size: 0.88rem; color: var(--gris); }
+
+    /* CONTACT */
+    .contact { padding: 80px 24px; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: start;
+    }
+    .contact-info { }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 0;
+    }
+    .contact-icon {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: var(--rouge-clair);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--rouge); font-size: 1.1rem;
+    }
+    .contact-item h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 2px; }
+    .contact-item p { font-size: 0.9rem; color: var(--gris); }
+    .contact-item a { color: var(--rouge); font-weight: 700; }
+
+    .contact-cta {
+      background: var(--noir);
+      border-radius: var(--r-lg);
+      padding: 40px 36px;
+      color: var(--blanc);
+      text-align: center;
+    }
+    .contact-cta h3 {
+      font-size: 1.4rem; font-weight: 900; margin-bottom: 12px;
+    }
+    .contact-cta p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem; margin-bottom: 24px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--noir);
+      color: rgba(255,255,255,0.6);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--rouge); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .hero { padding: 60px 24px 50px; min-height: 420px; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero-stats { gap: 20px; }
+      .hero-stat-num { font-size: 1.5rem; }
+      .chiffres-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .chiffre-num { font-size: 1.6rem; }
+      .atouts-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .permis-grid { grid-template-columns: 1fr; }
+      .agences-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .agences-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn-rouge, .hero-actions .btn-blanc { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="img/logo.jpg" alt="M'Auto School" class="nav-logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#permis">Nos permis</a></li>
+    <li><a href="#atouts">Pourquoi nous</a></li>
+    <li><a href="#agences">Nos agences</a></li>
+    <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+  </ul>
+  <button class="burger" onclick="document.querySelector('.mobile-menu').classList.add('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('open')" aria-label="Fermer">&times;</button>
+  <a href="#permis" onclick="this.parentElement.classList.remove('open')">Nos permis</a>
+  <a href="#atouts" onclick="this.parentElement.classList.remove('open')">Pourquoi nous</a>
+  <a href="#agences" onclick="this.parentElement.classList.remove('open')">Nos agences</a>
+  <a href="#contact" onclick="this.parentElement.classList.remove('open')">Nous contacter</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">Auto-Moto École</span>
+      <h1>Votre permis dans <span class="accent">l'Artois</span>, en toute confiance</h1>
+      <p class="hero-desc">Depuis 18 ans, M'Auto School accompagne les futurs conducteurs avec une pédagogie adaptée, 4 agences de proximité et une piste privée pour les deux-roues.</p>
+      <div class="hero-actions">
+        <a href="tel:0321224924" class="btn-rouge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          03 21 22 49 24
+        </a>
+        <a href="#permis" class="btn-blanc">Découvrir nos formules</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">18 ans</div>
+          <div class="hero-stat-label">d'expérience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">agences</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">types de permis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES -->
+<div class="chiffres">
+  <div class="container">
+    <div class="chiffres-grid">
+      <div class="chiffre-item">
+        <div class="chiffre-num">18+</div>
+        <div class="chiffre-label">années d'expérience</div>
+      </div>
+      <div class="chiffre-item">
+        <div class="chiffre-num">4</div>
+        <div class="chiffre-label">agences dans l'Artois</div>
+      </div>
+      <div class="chiffre-item">
+        <div class="chiffre-num">2</div>
+        <div class="chiffre-label">moniteurs dédiés</div>
+      </div>
+      <div class="chiffre-item">
+        <div class="chiffre-num">1</div>
+        <div class="chiffre-label">piste privée moto</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PERMIS -->
+<section class="permis" id="permis">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-label">Nos formations</span>
+      <h2 class="sec-title">Le permis qui vous correspond</h2>
+      <p class="sec-desc">Du code de la route au permis remorque, nous vous accompagnons à chaque étape avec patience et professionnalisme.</p>
+    </div>
+    <div class="permis-grid">
+      <div class="permis-card">
+        <div class="permis-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Permis B</h3>
+        <p>Formation complète à la conduite automobile. Code + conduite, avec un accompagnement personnalisé jusqu'à l'examen.</p>
+      </div>
+      <div class="permis-card">
+        <div class="permis-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Conduite accompagnée</h3>
+        <p>Dès 15 ans, commencez la conduite avec un accompagnateur. Une formule éprouvée pour gagner en expérience.</p>
+      </div>
+      <div class="permis-card">
+        <div class="permis-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Permis moto</h3>
+        <p>Passez votre permis moto avec notre piste privée. Formation plateau et circulation en toute sécurité.</p>
+      </div>
+      <div class="permis-card">
+        <div class="permis-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h3>Permis AM (scooter)</h3>
+        <p>Formation au permis cyclomoteur dès 14 ans. Théorie et pratique pour rouler en sécurité.</p>
+      </div>
+      <div class="permis-card">
+        <div class="permis-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><line x1="23" y1="16" x2="23" y2="8"/></svg>
+        </div>
+        <h3>Permis remorque</h3>
+        <p>Formation au permis BE pour tracter une remorque en toute légalité. Indispensable pour les pros et les loisirs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATOUTS -->
+<section class="atouts" id="atouts">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-label">Nos atouts</span>
+      <h2 class="sec-title">Pourquoi choisir M'Auto School ?</h2>
+    </div>
+    <div class="atouts-grid">
+      <div class="atouts-img">
+        <img src="img/facade.jpg" alt="Agence M'Auto School à Pas-en-Artois" loading="lazy">
+      </div>
+      <ul class="atouts-list">
+        <li>
+          <div class="atout-check">&#10003;</div>
+          <div class="atout-text">
+            <h4>18 ans d'expérience</h4>
+            <p>Christine et Walter forment des conducteurs depuis plus de 18 ans avec passion et rigueur.</p>
+          </div>
+        </li>
+        <li>
+          <div class="atout-check">&#10003;</div>
+          <div class="atout-text">
+            <h4>4 agences de proximité</h4>
+            <p>Pas-en-Artois, Bienvillers-au-Bois, Hébuterne et Avesnes-le-Comte. Toujours près de chez vous.</p>
+          </div>
+        </li>
+        <li>
+          <div class="atout-check">&#10003;</div>
+          <div class="atout-text">
+            <h4>Piste privée moto</h4>
+            <p>Un espace dédié pour le plateau moto, dans des conditions optimales et sans stress.</p>
+          </div>
+        </li>
+        <li>
+          <div class="atout-check">&#10003;</div>
+          <div class="atout-text">
+            <h4>Pédagogie adaptée</h4>
+            <p>Un suivi personnalisé pour chaque élève, à votre rythme, avec des moniteurs patients et disponibles.</p>
+          </div>
+        </li>
+        <li>
+          <div class="atout-check">&#10003;</div>
+          <div class="atout-text">
+            <h4>Véhicules récents</h4>
+            <p>Apprenez sur des véhicules modernes et bien entretenus pour un confort optimal.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AGENCES -->
+<section class="agences" id="agences">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-label">Nos agences</span>
+      <h2 class="sec-title">4 agences dans l'Artois</h2>
+      <p class="sec-desc">Où que vous soyez dans le secteur, une agence M'Auto School est à proximité.</p>
+    </div>
+    <div class="agences-grid">
+      <div class="agence-card">
+        <div class="agence-pin">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Pas-en-Artois</h3>
+        <p>Agence principale</p>
+      </div>
+      <div class="agence-card">
+        <div class="agence-pin">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Bienvillers-au-Bois</h3>
+        <p>Agence secondaire</p>
+      </div>
+      <div class="agence-card">
+        <div class="agence-pin">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Hébuterne</h3>
+        <p>Agence secondaire</p>
+      </div>
+      <div class="agence-card">
+        <div class="agence-pin">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Avesnes-le-Comte</h3>
+        <p>Agence secondaire</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-label">Contact</span>
+      <h2 class="sec-title">Prenez rendez-vous</h2>
+      <p class="sec-desc">Appelez-nous ou passez directement dans l'une de nos agences. Premier rendez-vous sans engagement.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Téléphone fixe</h4>
+            <p><a href="tel:0321224924">03 21 22 49 24</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Christine</h4>
+            <p><a href="tel:0750942089">07 50 94 20 89</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Walter</h4>
+            <p><a href="tel:0781807401">07 81 80 74 01</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E82228" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:mautoschool@outlook.com">mautoschool@outlook.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <h3>Prêt à prendre la route ?</h3>
+        <p>Contactez-nous pour un premier rendez-vous gratuit et sans engagement. Nous étudierons ensemble la formule la plus adaptée à vos besoins.</p>
+        <a href="tel:0321224924" class="btn-rouge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Appelez-nous
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>&copy; 2026 M'Auto School — Auto-Moto École. Pas-en-Artois (62). Tous droits réservés.</p>
+  </div>
+</footer>
+
+</body>
+</html>
